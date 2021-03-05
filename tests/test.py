@@ -2,7 +2,7 @@
 
 import sys
 
-sys.path.append("../plogger/")
+sys.path.append("../plogger")
 
 from plogger import Logger
 from plogger import LoggerInterface
@@ -29,8 +29,12 @@ class Log2File(LoggerInterface):
 logger=Logger()
 
 output=Log2File()
-output.append=False
+# output.append=False
 
 logger.log("WARNING"," this is a warning")
 
-logger.log(title="Warning",message="this is a warning",output=output)
+logger.setOuput(output)
+
+logger.info("this is just an info")
+logger.warning("but this is a warning")
+logger.error("and this is an error")
